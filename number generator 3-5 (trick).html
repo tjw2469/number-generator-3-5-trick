@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Performance Score</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        #container {
+            text-align: center;
+            border: 2px solid #4CAF50;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+        #scoreDisplay {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #4CAF50;
+        }
+        #generateButton {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #generateButton:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Assessment Complete</h1>
+        <p>Click below to view your performance score.</p>
+        <div id="scoreDisplay">---</div>
+        <button id="generateButton" onclick="generateRandomNumber()">View Score</button>
+    </div>
+
+    <script>
+        function generateRandomNumber() {
+            var randomNumber = Math.floor(Math.random() * 3) + 3; // Generate a number between 3 and 5
+            document.getElementById('scoreDisplay').innerHTML = "Your Score: " + randomNumber;
+            document.getElementById('generateButton').disabled = true; // Disable the button after clicking once
+            // Display a custom message based on the score
+            if (randomNumber > 4) {
+                alert("Excellent! Great performance!");
+            } else {
+                alert("Good, but there is room for improvement.");
+            }
+        }
+    </script>
+</body>
+</html>
